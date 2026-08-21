@@ -1,0 +1,94 @@
+:host {
+  display: block;
+}
+
+.site-footer {
+  padding: 5rem 5% 2rem;
+  background: #11100e;
+  color: #ffffff;
+}
+
+.footer-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 3rem;
+  padding-bottom: 4rem;
+  border-bottom: 1px solid #44413c;
+
+  p {
+    max-width: 28rem;
+    margin: 0;
+    color: #aaa69d;
+    line-height: 1.6;
+  }
+}
+
+.footer-logo {
+  font-size: clamp(4rem, 8vw, 8rem);
+  font-weight: 900;
+  letter-spacing: -0.08em;
+  line-height: 0.8;
+
+  span {
+    color: #ff5c35;
+  }
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 2.5rem 0;
+
+  a {
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.08rem;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  a:hover {
+    color: #d9ff43;
+  }
+}
+
+.footer-bottom {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid #44413c;
+
+  p {
+    margin: 0;
+    color: #77736b;
+    font-family: monospace;
+    font-size: 0.65rem;
+    line-height: 1.6;
+  }
+}
+
+.trademark-note {
+  max-width: 48rem;
+  text-align: right;
+}
+
+@media (max-width: 768px) {
+  .site-footer {
+    padding: 4rem 1.5rem 2rem;
+  }
+
+  .footer-heading,
+  .footer-bottom {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .trademark-note {
+    text-align: left;
+  }
+}

@@ -1,0 +1,248 @@
+:host {
+  display: block;
+}
+
+.experience-section {
+  padding: 8rem 5%;
+  background: #f0eee8;
+  color: #11100e;
+}
+
+.section-heading {
+  display: grid;
+  grid-template-columns: 0.6fr 1.4fr;
+  gap: 3rem;
+  margin-bottom: 6rem;
+}
+
+.section-label {
+  margin: 0;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.16rem;
+  text-transform: uppercase;
+}
+
+.section-heading h2 {
+  max-width: 65rem;
+  margin: 0;
+  font-size: clamp(3.5rem, 6vw, 7rem);
+  line-height: 0.92;
+  letter-spacing: -0.07em;
+
+  span {
+    display: block;
+    font-family: Georgia, "Times New Roman", serif;
+    font-style: italic;
+    font-weight: 400;
+  }
+}
+
+.experience-card {
+  display: grid;
+  grid-template-columns: 6rem 1fr;
+  gap: 2rem;
+  padding: 4rem 0;
+  border-top: 1px solid #aaa69d;
+}
+
+.experience-card:last-child {
+  border-bottom: 1px solid #aaa69d;
+}
+
+.experience-number {
+  padding-top: 0.4rem;
+  color: #77736b;
+  font-family: monospace;
+  font-size: 0.8rem;
+}
+
+.company-information {
+  max-width: 68rem;
+}
+
+.company-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.period {
+  margin: 0 0 0.7rem;
+  color: #ff5c35;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.12rem;
+  text-transform: uppercase;
+}
+
+.company-heading h3 {
+  margin: 0;
+  font-size: clamp(3rem, 5vw, 5.5rem);
+  line-height: 1;
+  letter-spacing: -0.06em;
+}
+
+.latest-badge {
+  padding: 0.7rem 1rem;
+  border-radius: 2rem;
+  background: #d9ff43;
+  font-size: 0.65rem;
+  font-weight: 900;
+  letter-spacing: 0.08rem;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.role-information {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+
+  h4 {
+    margin: 0;
+    font-size: 1.25rem;
+  }
+
+  p {
+    margin: 0;
+    color: #77736b;
+  }
+
+  p::before {
+    margin-right: 1rem;
+    content: "•";
+  }
+}
+
+.description {
+  max-width: 48rem;
+  margin: 2rem 0;
+  color: #5d5a54;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.achievements {
+  max-width: 52rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    position: relative;
+    margin-bottom: 0.8rem;
+    padding-left: 1.6rem;
+    color: #44413c;
+    line-height: 1.6;
+  }
+
+  li::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #ff5c35;
+    font-weight: 900;
+    content: "↳";
+  }
+}
+
+.technologies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 2rem;
+
+  span {
+    padding: 0.55rem 0.85rem;
+    border: 1px solid #aaa69d;
+    border-radius: 2rem;
+    font-family: monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+  }
+}
+
+.featured {
+  .company-heading h3 {
+    text-decoration-color: #d9ff43;
+    text-decoration-line: underline;
+    text-decoration-thickness: 0.25rem;
+    text-underline-offset: 0.6rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .experience-section {
+    padding: 6rem 1.5rem;
+  }
+
+  .section-heading {
+    grid-template-columns: 1fr;
+    margin-bottom: 4rem;
+  }
+
+  .experience-card {
+    grid-template-columns: 2.5rem 1fr;
+    gap: 0.5rem;
+    padding: 3rem 0;
+  }
+
+  .company-heading {
+    display: block;
+  }
+
+  .latest-badge {
+    display: inline-block;
+    margin-top: 1.5rem;
+  }
+
+  .role-information {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.4rem;
+
+    p::before {
+      display: none;
+    }
+  }
+}
+
+.company-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  width: fit-content;
+  color: inherit;
+  text-decoration: none;
+}
+
+.company-logo-container {
+  width: 7rem;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.company-logo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: left center;
+}
+
+.external-icon {
+  font-size: 1.4rem;
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.company-link:hover .external-icon {
+  color: #ff5c35;
+  transform: translate(0.25rem, -0.25rem);
+}

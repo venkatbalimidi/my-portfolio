@@ -1,0 +1,77 @@
+<section class="experience-section" id="experience">
+  <div class="section-heading">
+    <p class="section-label">Professional journey</p>
+
+    <h2>
+      Experience that combines
+      <span>code and production.</span>
+    </h2>
+  </div>
+
+  <div class="experience-list">
+    @for (experience of experiences; track experience.company; let index = $index) {
+      <article
+        class="experience-card"
+        [class.featured]="experience.featured"
+      >
+        <div class="experience-number">
+          {{ (index + 1).toString().padStart(2, '0') }}
+        </div>
+
+        <div class="company-information">
+          <div class="company-heading">
+            <div>
+              <p class="period">{{ experience.period }}</p>
+              <a
+             class="company-link"
+             [href]="experience.companyUrl"
+             target="_blank"
+             rel="noopener noreferrer"
+             [attr.aria-label]="'Visit ' + experience.company + ' official website'"
+                >
+             @if (experience.logoUrl) {
+                <div class="company-logo-container">
+               <img
+               class="company-logo"
+               [src]="experience.logoUrl"
+               [alt]="experience.company + ' logo'"
+                >
+                </div>
+            } @else {
+                  <h3>{{ experience.company }}</h3>
+             }
+
+             <span class="external-icon" aria-hidden="true">↗</span>
+            </a>
+            </div>
+
+            @if (experience.featured) {
+              <span class="latest-badge">Latest experience</span>
+            }
+          </div>
+
+          <div class="role-information">
+            <h4>{{ experience.role }}</h4>
+            <p>{{ experience.location }}</p>
+          </div>
+
+          <p class="description">
+            {{ experience.description }}
+          </p>
+
+          <ul class="achievements">
+            @for (achievement of experience.achievements; track achievement) {
+              <li>{{ achievement }}</li>
+            }
+          </ul>
+
+          <div class="technologies">
+            @for (technology of experience.technologies; track technology) {
+              <span>{{ technology }}</span>
+            }
+          </div>
+        </div>
+      </article>
+    }
+  </div>
+</section>

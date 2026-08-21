@@ -1,0 +1,29 @@
+<section class="skills-section" id="skills">
+  <div class="section-heading">
+    <p class="section-label">Technical toolkit</p>
+
+    <h2>
+      Technologies I use to
+      <span>solve real problems.</span>
+    </h2>
+  </div>
+
+  <div class="skill-list">
+    @for (group of skillGroups; track group.number) {
+      <article class="skill-card">
+        <span class="skill-number">{{ group.number }}</span>
+
+        <div class="skill-information">
+          <h3>{{ group.title }}</h3>
+          <p>{{ group.description }}</p>
+
+          <div class="skill-tags">
+            @for (skill of group.skills; track skill) {
+              <span>{{ skill }}</span>
+            }
+          </div>
+        </div>
+      </article>
+    }
+  </div>
+</section>

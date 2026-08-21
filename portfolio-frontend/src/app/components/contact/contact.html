@@ -1,0 +1,119 @@
+<section class="contact-section" id="contact">
+  <div class="contact-introduction">
+    <p class="section-label">Let’s talk</p>
+
+    <h2>
+      Have a role or project
+      <span>worth discussing?</span>
+    </h2>
+
+    <p class="contact-description">
+      I’m available for Java software engineering opportunities
+      across the United Kingdom.
+    </p>
+
+    <a
+      class="email-link"
+      href="mailto:venkatbalimidi@gmail.com"
+    >
+      venkatbalimidi@gmail.com ↗
+    </a>
+  </div>
+
+  <form
+    class="contact-form"
+    [formGroup]="contactForm"
+    (ngSubmit)="submitForm()"
+  >
+    <div class="form-field">
+      <label for="name">Your name</label>
+
+      <input
+        id="name"
+        type="text"
+        formControlName="name"
+        placeholder="Enter your name"
+      >
+
+      @if (
+        contactForm.controls.name.touched &&
+        contactForm.controls.name.invalid
+      ) {
+        <p class="field-error">Please enter your name.</p>
+      }
+    </div>
+
+    <div class="form-field">
+      <label for="email">Email address</label>
+
+      <input
+        id="email"
+        type="email"
+        formControlName="email"
+        placeholder="you@example.com"
+      >
+
+      @if (
+        contactForm.controls.email.touched &&
+        contactForm.controls.email.invalid
+      ) {
+        <p class="field-error">
+          Please enter a valid email address.
+        </p>
+      }
+    </div>
+
+    <div class="form-field full-width">
+      <label for="subject">Subject</label>
+
+      <input
+        id="subject"
+        type="text"
+        formControlName="subject"
+        placeholder="What would you like to discuss?"
+      >
+
+      @if (
+        contactForm.controls.subject.touched &&
+        contactForm.controls.subject.invalid
+      ) {
+        <p class="field-error">Please enter a subject.</p>
+      }
+    </div>
+
+    <div class="form-field full-width">
+      <label for="message">Message</label>
+
+      <textarea
+        id="message"
+        rows="6"
+        formControlName="message"
+        placeholder="Tell me about the opportunity..."
+      ></textarea>
+
+      @if (
+        contactForm.controls.message.touched &&
+        contactForm.controls.message.invalid
+      ) {
+        <p class="field-error">Please enter a message.</p>
+      }
+    </div>
+
+    <div class="form-actions full-width">
+      <button
+        type="submit"
+        [disabled]="submitting()"
+      >
+        {{ submitting() ? 'Sending...' : 'Send message ↗' }}
+      </button>
+
+      @if (successMessage()) {
+        <p class="success-message">{{ successMessage() }}</p>
+      }
+
+      @if (errorMessage()) {
+        <p class="submit-error">{{ errorMessage() }}</p>
+      }
+    </div>
+  </form>
+</section>

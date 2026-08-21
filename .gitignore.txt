@@ -1,0 +1,25 @@
+# Angular
+portfolio-frontend/node_modules/
+portfolio-frontend/dist/
+portfolio-frontend/.angular/
+
+# Spring Boot
+portfolio-backend/target/
+
+# Secrets
+.env
+.env.*
+**/application-local.properties
+
+# IDE
+.vscode/
+.idea/
+*.iml
+.classpath
+.project
+.settings/
+
+# Logs and operating system files
+*.log
+.DS_Store
+Thumbs.db
