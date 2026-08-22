@@ -42,9 +42,12 @@ export class Experience {
         'REST APIs',
         'Microservices',
         'SQL',
-        'Hibernate',
+        'JPA / Hibernate',
+        'Maven',
         'Jenkins',
-        'Git'
+        'Git',
+        'GitHub, GitHub Copilot',
+        'AWS', 'Docker', 'understanding of Kubernetes' 
       ],
       featured: true
     },
@@ -66,6 +69,7 @@ export class Experience {
       technologies: [
         'Java',
         'Spring',
+        'Struts',
         'REST',
         'SQL Server',
         'PL/SQL',

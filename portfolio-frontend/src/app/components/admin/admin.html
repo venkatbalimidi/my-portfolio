@@ -1,0 +1,138 @@
+<main class="admin-page">
+  @if (!loggedIn()) {
+    <section class="login-panel">
+      <p class="admin-label">Restricted area</p>
+      <h1>Portfolio admin</h1>
+
+      <p class="login-description">
+        Sign in to view contact messages and CV download requests.
+      </p>
+
+      <form
+        class="login-form"
+        [formGroup]="loginForm"
+        (ngSubmit)="login()"
+      >
+        <label for="admin-username">Username</label>
+
+        <input
+          id="admin-username"
+          type="text"
+          formControlName="username"
+          autocomplete="username"
+        >
+
+        <label for="admin-password">Password</label>
+
+        <input
+          id="admin-password"
+          type="password"
+          formControlName="password"
+          autocomplete="current-password"
+        >
+
+        <button type="submit" [disabled]="loading()">
+          {{ loading() ? 'Signing in...' : 'Sign in' }}
+        </button>
+
+        @if (errorMessage()) {
+          <p class="error-message">{{ errorMessage() }}</p>
+        }
+      </form>
+
+      <a class="portfolio-link" href="/">
+        ← Return to portfolio
+      </a>
+    </section>
+  } @else {
+    <section class="dashboard">
+      <header class="dashboard-header">
+        <div>
+          <p class="admin-label">Private dashboard</p>
+          <h1>Portfolio activity</h1>
+        </div>
+
+        <button type="button" (click)="logout()">
+          Log out
+        </button>
+      </header>
+
+      <section class="dashboard-section">
+        <div class="section-heading">
+          <h2>Contact messages</h2>
+          <span>{{ contactMessages().length }}</span>
+        </div>
+
+        <div class="card-list">
+          @for (message of contactMessages(); track message.id) {
+            <article class="message-card">
+              <div class="card-header">
+                <div>
+                  <h3>{{ message.subject }}</h3>
+                  <p>
+                    {{ message.name }} ·
+                    <a [href]="'mailto:' + message.email">
+                      {{ message.email }}
+                    </a>
+                  </p>
+                </div>
+
+                <time>
+                  {{ message.createdAt | date:'medium' }}
+                </time>
+              </div>
+
+              <p class="message-content">
+                {{ message.message }}
+              </p>
+            </article>
+          } @empty {
+            <p class="empty-message">
+              No contact messages have been received.
+            </p>
+          }
+        </div>
+      </section>
+
+      <section class="dashboard-section">
+        <div class="section-heading">
+          <h2>CV download requests</h2>
+          <span>{{ cvRequests().length }}</span>
+        </div>
+
+        <div class="card-list">
+          @for (request of cvRequests(); track request.id) {
+            <article class="message-card">
+              <div class="card-header">
+                <div>
+                  <h3>{{ request.name }}</h3>
+                  <p>
+                    <a [href]="'mailto:' + request.email">
+                      {{ request.email }}
+                    </a>
+
+                    @if (request.company) {
+                      · {{ request.company }}
+                    }
+                  </p>
+                </div>
+
+                <time>
+                  {{ request.requestedAt | date:'medium' }}
+                </time>
+              </div>
+
+              <p class="message-content">
+                {{ request.reason || 'No reason provided.' }}
+              </p>
+            </article>
+          } @empty {
+            <p class="empty-message">
+              No CV download requests have been received.
+            </p>
+          }
+        </div>
+      </section>
+    </section>
+  }
+</main>

@@ -1,5 +1,7 @@
 package com.venkat.portfolio_backend.contact;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 @Service
@@ -31,5 +33,20 @@ public class ContactMessageService {
                 "Thank you. Your message has been received.",
                 savedMessage.getCreatedAt()
         );
+    }
+    
+    public List<ContactMessageAdminResponse> getMessages() {
+        return contactMessageRepository
+                .findAllByOrderByCreatedAtDesc()
+                .stream()
+                .map(message -> new ContactMessageAdminResponse(
+                        message.getId(),
+                        message.getName(),
+                        message.getEmail(),
+                        message.getSubject(),
+                        message.getMessage(),
+                        message.getCreatedAt()
+                ))
+                .toList();
     }
 }

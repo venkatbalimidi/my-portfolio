@@ -65,4 +65,24 @@ public class CvDownloadRequest {
     public LocalDateTime getRequestedAt() {
         return requestedAt;
     }
+    
+    public String getName() {
+        return name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getCompany() {
+        return company;
+    }
+
+    public String getReason() {
+        return reason;
+    }
+
+    public boolean isConsentGiven() {
+        return consentGiven;
+    }
 }

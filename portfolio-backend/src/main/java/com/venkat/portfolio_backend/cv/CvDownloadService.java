@@ -1,13 +1,14 @@
 package com.venkat.portfolio_backend.cv;
 
+import java.nio.file.Path;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
-
-import java.nio.file.Path;
 
 @Service
 public class CvDownloadService {
@@ -47,5 +48,20 @@ public class CvDownloadService {
         repository.save(request);
 
         return cvResource;
+    }
+    
+    public List<CvDownloadRequestResponse> getDownloadRequests() {
+        return repository.findAllByOrderByRequestedAtDesc()
+                .stream()
+                .map(request -> new CvDownloadRequestResponse(
+                        request.getId(),
+                        request.getName(),
+                        request.getEmail(),
+                        request.getCompany(),
+                        request.getReason(),
+                        request.isConsentGiven(),
+                        request.getRequestedAt()
+                ))
+                .toList();
     }
 }
