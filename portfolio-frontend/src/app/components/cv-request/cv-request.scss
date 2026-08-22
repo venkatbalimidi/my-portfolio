@@ -1,0 +1,178 @@
+:host {
+  display: block;
+}
+
+.cv-request-section {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 6rem;
+  padding: 8rem 5%;
+  background: #f0eee8;
+  color: #11100e;
+  scroll-margin-top: 5rem;
+}
+
+.section-label {
+  margin: 0 0 2rem;
+  color: #ff5c35;
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 0.16rem;
+  text-transform: uppercase;
+}
+
+.cv-introduction {
+  h2 {
+    max-width: 45rem;
+    margin: 0;
+    font-size: clamp(3.5rem, 6vw, 7rem);
+    line-height: 0.92;
+    letter-spacing: -0.07em;
+
+    span {
+      display: block;
+      font-family: Georgia, "Times New Roman", serif;
+      font-style: italic;
+      font-weight: 400;
+    }
+  }
+
+  > p:last-child {
+    max-width: 34rem;
+    margin: 2.5rem 0 0;
+    color: #5d5a54;
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+}
+
+.cv-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-content: start;
+  padding-top: 3rem;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+
+  label {
+    font-size: 0.7rem;
+    font-weight: 900;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+  }
+
+  input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 1rem 0;
+    border: 0;
+    border-bottom: 1px solid #aaa69d;
+    outline: none;
+    background: transparent;
+    color: #11100e;
+    font: inherit;
+  }
+
+  input:focus {
+    border-bottom: 2px solid #11100e;
+  }
+
+  input::placeholder {
+    color: #77736b;
+  }
+}
+
+.consent-field {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+  grid-column: 1 / -1;
+  color: #5d5a54;
+  cursor: pointer;
+  font-size: 0.85rem;
+  line-height: 1.5;
+
+  input {
+    width: 1rem;
+    height: 1rem;
+    margin-top: 0.15rem;
+    accent-color: #ff5c35;
+  }
+}
+
+.field-error,
+.submit-error {
+  margin: 0;
+  color: #b52a0c;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.consent-error,
+.form-actions {
+  grid-column: 1 / -1;
+}
+
+.form-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+
+  button {
+    padding: 1rem 1.5rem;
+    border: 1px solid #11100e;
+    border-radius: 3rem;
+    background: #11100e;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 0.75rem;
+    font-weight: 900;
+    letter-spacing: 0.08rem;
+    text-transform: uppercase;
+    transition:
+      background 0.25s ease,
+      color 0.25s ease,
+      transform 0.25s ease;
+  }
+
+  button:hover:not(:disabled) {
+    background: #d9ff43;
+    color: #11100e;
+    transform: translateY(-0.2rem);
+  }
+
+  button:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+}
+
+.success-message {
+  margin: 0;
+  color: #276100;
+  font-weight: 800;
+}
+
+@media (max-width: 900px) {
+  .cv-request-section {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    padding: 6rem 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .cv-form {
+    grid-template-columns: 1fr;
+  }
+
+  .form-field {
+    grid-column: 1;
+  }
+}

@@ -62,10 +62,14 @@ body {
     scroll-behavior: auto;
   }
 
-  app-experience,
-  app-projects,
-  app-skills,
-  app-contact {
-    animation: none;
-  }
+app-experience,
+app-projects,
+app-skills,
+app-cv-request,
+app-contact {
+  display: block;
+  animation: section-reveal linear both;
+  animation-timeline: view();
+  animation-range: entry 0% entry 30%;
+}
 }

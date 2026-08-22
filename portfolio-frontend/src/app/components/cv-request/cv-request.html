@@ -1,0 +1,123 @@
+<section class="cv-request-section" id="cv-request">
+  <div class="cv-introduction">
+    <p class="section-label">Curriculum vitae</p>
+
+    <h2>
+      Interested in my
+      <span>experience?</span>
+    </h2>
+
+    <p>
+      Enter your details below to download my latest CV.
+      Your information will only be stored to record this request.
+    </p>
+  </div>
+
+  <form
+    class="cv-form"
+    [formGroup]="cvForm"
+    (ngSubmit)="submitForm()"
+  >
+    <div class="form-field">
+      <label for="cv-name">Name *</label>
+
+      <input
+        id="cv-name"
+        type="text"
+        formControlName="name"
+        placeholder="Your name"
+      >
+
+      @if (
+        cvForm.controls.name.touched &&
+        cvForm.controls.name.invalid
+      ) {
+        <p class="field-error">Please enter your name.</p>
+      }
+    </div>
+
+    <div class="form-field">
+      <label for="cv-email">Email address *</label>
+
+      <input
+        id="cv-email"
+        type="email"
+        formControlName="email"
+        placeholder="you@company.com"
+      >
+
+      @if (
+        cvForm.controls.email.touched &&
+        cvForm.controls.email.invalid
+      ) {
+        <p class="field-error">
+          Please enter a valid email address.
+        </p>
+      }
+    </div>
+
+    <div class="form-field">
+      <label for="cv-company">Company</label>
+
+      <input
+        id="cv-company"
+        type="text"
+        formControlName="company"
+        placeholder="Company name"
+      >
+    </div>
+
+    <div class="form-field">
+      <label for="cv-reason">Reason</label>
+
+      <input
+        id="cv-reason"
+        type="text"
+        formControlName="reason"
+        placeholder="Recruitment opportunity"
+      >
+    </div>
+
+    <label class="consent-field">
+      <input
+        type="checkbox"
+        formControlName="consentGiven"
+      >
+
+      <span>
+        I consent to my details being stored to record this
+        CV download request. *
+      </span>
+    </label>
+
+    @if (
+      cvForm.controls.consentGiven.touched &&
+      cvForm.controls.consentGiven.invalid
+    ) {
+      <p class="field-error consent-error">
+        Consent is required before downloading the CV.
+      </p>
+    }
+
+    <div class="form-actions">
+      <button
+        type="submit"
+        [disabled]="downloading()"
+      >
+        {{
+          downloading()
+            ? 'Preparing download...'
+            : 'Download CV ↓'
+        }}
+      </button>
+
+      @if (successMessage()) {
+        <p class="success-message">{{ successMessage() }}</p>
+      }
+
+      @if (errorMessage()) {
+        <p class="submit-error">{{ errorMessage() }}</p>
+      }
+    </div>
+  </form>
+</section>
