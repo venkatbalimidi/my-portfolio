@@ -34,3 +34,6 @@ build/
 
 # Private downloadable files
 portfolio-backend/storage/
+
+# Private CV storage
+/storage/
