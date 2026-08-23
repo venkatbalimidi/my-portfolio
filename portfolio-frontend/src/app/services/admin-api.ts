@@ -5,6 +5,8 @@ import {
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+import { environment } from '../../environments/environment';
+
 import {
   AdminCredentials,
   ContactMessageAdmin,
@@ -15,8 +17,11 @@ import {
 export class AdminApi {
   private readonly http = inject(HttpClient);
 
-  private readonly apiUrl =
-    'http://localhost:8080/api/admin';
+//   private readonly apiUrl =
+//     'http://localhost:8080/api/admin';
+
+private readonly apiUrl =
+  `${environment.apiUrl}/admin`;
 
   getCvRequests(
     credentials: AdminCredentials

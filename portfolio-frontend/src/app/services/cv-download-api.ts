@@ -3,13 +3,16 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { CvDownloadForm } from '../models/cv-download';
+import { environment } from '../../environments/environment';
 
 @Service()
 export class CvDownloadApi {
   private readonly http = inject(HttpClient);
 
-  private readonly apiUrl =
-    'http://localhost:8080/api/cv/download';
+//   private readonly apiUrl =
+//     'http://localhost:8080/api/cv/download';
+    private readonly apiUrl =
+  `${environment.apiUrl}/cv/download`;
 
   downloadCv(request: CvDownloadForm): Observable<Blob> {
     return this.http.post(

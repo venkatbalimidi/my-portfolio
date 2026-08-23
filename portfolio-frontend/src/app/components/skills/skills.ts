@@ -27,7 +27,8 @@ export class Skills {
         'Spring Data JPA',
         'Hibernate',
         'REST APIs',
-        'Microservices'
+        'Microservices',
+        'JDBC'
       ]
     },
     {
@@ -63,10 +64,15 @@ export class Skills {
         'Supporting production systems and delivering reliable software changes.',
       skills: [
         'Git',
+        'GitHub',
+        'Maven',
         'Jenkins',
         'Gradle',
+        'AWS',
         'Docker',
         'CI/CD',
+        'GitHub Copilot',
+        'GitHub Actions',
         'Log Analysis',
         'Incident Management'
       ]
